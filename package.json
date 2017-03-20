@@ -1,19 +1,19 @@
 {
   "name": "vue-isomorphic-starter",
   "version": "1.0.0",
-  "description": "Vue server-side rendering in real life. ~(≧▽≦)/~",
+  "description": "Vue server-side rendering in real life. ~(\u2267\u25bd\u2266)/~",
   "main": "index.js",
   "scripts": {
     "test": "eslint server/*.js client/**/*.js client/**/*.vue",
     "postinstall": "npm run build:client-dev",
-    "start": "cross-env VUE_ENV=server NODE_ENV=production node server.js",
-    "build": "rm -rf ./build && npm run build:client && npm run build:server && npm run build:bundle",
-    "dev": "cross-env VUE_ENV=server NODE_ENV=development nodemon --watch server -x \"npm run build:server && node\" server.js",
-    "build:server": "webpack --config scripts/webpack.server.js",
+    "start": "node init && cross-env VUE_ENV=server NODE_ENV=production node server.js",
+    "build": "node init && rm -rf ./build && npm run build:client && npm run build:server && npm run build:bundle",
+    "dev": "node init && cross-env VUE_ENV=server NODE_ENV=development nodemon --watch server -x \"npm run build:server && node\" server.js",
+    "build:server": "node init && webpack --config scripts/webpack.server.js",
     "watch:server": "webpack --config scripts/webpack.server.js --watch",
-    "build:client-dev": "webpack --config scripts/webpack.client.dev.js",
-    "build:client": "webpack --config scripts/webpack.client.prod.js",
-    "build:bundle": "webpack --config scripts/webpack.bundle.prod.js"
+    "build:client-dev": "node init && webpack --config scripts/webpack.client.dev.js",
+    "build:client": "node init && webpack --config scripts/webpack.client.prod.js",
+    "build:bundle": "node init && webpack --config scripts/webpack.bundle.prod.js"
   },
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
